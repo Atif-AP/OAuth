@@ -16,6 +16,8 @@ export const SignInButton = () => {
                 console.log(e);
             });
         }
+
+        console.log("success");
     }
     return (
         <Button variant="secondary" className="ml-auto" onClick={() => handleLogin("popup")}>Sign in using Popup</Button>

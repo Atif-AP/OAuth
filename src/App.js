@@ -14,7 +14,6 @@ function App() {
           </AuthenticatedTemplate>
           <UnauthenticatedTemplate>
               <p>You are not signed in! Please sign in.</p>
-              <ProfileContent />
           </UnauthenticatedTemplate>
       </PageLayout>
   );
