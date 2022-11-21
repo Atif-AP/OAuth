@@ -5,9 +5,12 @@ import { loginRequest } from "./authConfig";
 import Button from "react-bootstrap/Button";
 import { ProfileData } from "./components/ProfileData";
 import { callMsGraph } from "./graph";
+const axios = require("axios");
 
-function App() {
+const App = () => {
+
   return (
+    <>
       <PageLayout>
           <AuthenticatedTemplate>
               <ProfileContent />
@@ -16,16 +19,22 @@ function App() {
               <p>You are not signed in! Please sign in.</p>
           </UnauthenticatedTemplate>
       </PageLayout>
+
+        <form action="../../post" method="post" 
+        className="form">
+        <button type="submit">Connected?</button>
+        </form>
+    </>
   );
 }
 
-function ProfileContent() {
+const ProfileContent = () => {
   const { instance, accounts } = useMsal();
   const [graphData, setGraphData] = useState(null);
 
   const name = accounts[0] && accounts[0].name;
 
-  function RequestProfileData() {
+  const RequestProfileData = () => {
       const request = {
           ...loginRequest,
           account: accounts[0]
@@ -39,7 +48,9 @@ function ProfileContent() {
               callMsGraph(response.accessToken).then(response => setGraphData(response));
           });
       });
-  }
+
+  };
+
 
   return (
       <>
@@ -47,7 +58,7 @@ function ProfileContent() {
           {graphData ? 
               <ProfileData graphData={graphData} />
               :
-              <Button variant="secondary" onClick={RequestProfileData}>Request Profile Information</Button>
+              <Button variant="secondary" onClick={RequestProfileData} >Request Profile Information</Button>
           }
       </>
   );
