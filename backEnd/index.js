@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 const userModel = require("./model");
 
+
+//DB CONNECTION
 mongoose
   .connect(
     "mongodb+srv://atifk:test123@cluster0.o5wples.mongodb.net/test"
@@ -12,6 +14,8 @@ mongoose
   .then(() => console.log("DB Connected"))
   .catch((err) => console.log(err));
 
+
+  //HIER WORDT VIA API HET SCHEMA AANGEROEPEN EN GESAVED
 app.post("/add_user", async (request, response) => {
   const user = new userModel(request.body);
   
@@ -25,7 +29,7 @@ app.post("/add_user", async (request, response) => {
     console.log("done");
 });
 
-  
+// IRRELEVANT WAS VOOR TE TESTEN
 app.post('/post', (req, res) => {
     console.log("Connected to React");
     res.redirect("/");

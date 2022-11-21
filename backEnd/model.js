@@ -4,6 +4,12 @@ const Schema = mongoose.Schema
 
 //autoIncrement.initialize(mongoose);
 
+/*
+
+    TEST SCHEMA OM GEWOON DE GEGEVENS VAN DE USER WEG TE SCHRIJVEN
+
+*/
+
 
 const UsersSchema = new Schema({
     id: Number,

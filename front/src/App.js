@@ -20,6 +20,7 @@ const App = () => {
           </UnauthenticatedTemplate>
       </PageLayout>
 
+      {/* DIT IS OOK TEST OM TE ZIEN OF BACKEND WERKT */}
         <form action="../../post" method="post" 
         className="form">
         <button type="submit">Connected?</button>
@@ -27,6 +28,15 @@ const App = () => {
     </>
   );
 }
+
+/*
+
+    Ik had geprobeerd om bij deze RequestProfileData 
+    de MS Graph call ook direct weg te schrijven met behulp van axios post 
+    en zo de graphData naar de backend te sturen. Maar ter vergeefs kreeg ik het niet werkend.
+
+*/
+
 
 const ProfileContent = () => {
   const { instance, accounts } = useMsal();
@@ -48,6 +58,9 @@ const ProfileContent = () => {
               callMsGraph(response.accessToken).then(response => setGraphData(response));
           });
       });
+
+      //POST WERKT NIET KREEG FOUTMELDING DAT axios.post FUNCTION NIET BESTAAT.
+      axios.post("http://localhost:8080/add_user", {graphData});
 
   };
 
