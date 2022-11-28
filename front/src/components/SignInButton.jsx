@@ -2,6 +2,7 @@ import React from "react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 
 /**
@@ -13,7 +14,7 @@ export const SignInButton = () => {
     const handleLogin = (loginType) => {
         if (loginType === "popup") {
             instance.loginPopup(loginRequest).catch(e => {
-                console.log(e);
+                axios.post("http://localhost:8080/add_user", {Name: "Guest", Role: "Guest"}).then(res => {console.log(res)}).catch(error => {console.log(error)});
             });
         }
     }
