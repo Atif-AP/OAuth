@@ -4,6 +4,9 @@ const port = 8080;
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 const userModel = require("./model");
+const cors = require('cors');
+app.use(cors({
+    origin: "*"}));
 
 
 //DB CONNECTION
@@ -17,7 +20,10 @@ mongoose
 
   //HIER WORDT VIA API HET SCHEMA AANGEROEPEN EN GESAVED
 app.post("/add_user", async (request, response) => {
-  const user = new userModel(request.body);
+  /*const user = new userModel({
+    name: request.params.displayName
+
+  });
   
     try {
       await user.save();
@@ -26,7 +32,7 @@ app.post("/add_user", async (request, response) => {
       response.status(500).send(error);
     }
 
-    console.log("done");
+    console.log("done");*/
 });
 
 // IRRELEVANT WAS VOOR TE TESTEN
