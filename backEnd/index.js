@@ -30,9 +30,9 @@ app.post("/add_user", async (request, response) => {
       response.send(user);
     } catch (error) {
       response.status(500).send(error);
-    }
+    }*/
 
-    console.log("done");*/
+    console.log("done");
 });
 
 // IRRELEVANT WAS VOOR TE TESTEN

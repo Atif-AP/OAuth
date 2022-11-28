@@ -4,26 +4,35 @@ import axios from "axios";
 /**
  * Renders information about the user obtained from Microsoft Graph
  */
-export const ProfileData = (props) => {
-    //const name = "poop";
-
-    const obj = {
-        name: props.graphData.displayName
-
-    }
+export const ProfileData = async (props) => {
+    const name = "test";
 
     console.log(props.graphData.displayName)
-    //axios.post("http://localhost:8080/add_user", obj).then(res => {console.log(res)}).catch(res => {console.log(res)});
 
-    axios({
+    //VARIATIES VAN AXIOS CALLS DIE IK HEB GEPROBEERD
+    //CALL WORDT SUCCESVOL UITGEVOERD, MAAR MET GEEN DATA ERIN
+
+    await axios.post("http://localhost:8080/add_user", {Name: "Test"}).then(res => {console.log(res)}).catch(error => {console.log(error)});
+
+    /*await axios({
         method: 'post',
         url: 'http://localhost:8080/add_user',
-        data: obj
+        data: {
+          displayName: props.graphData.displayName
+        }
       }).then((response) => {
         console.log(response);
-      }, (error) => {
-        console.log(error);
-      });
+      })*/
+
+      /*await axios({
+        method: 'post',
+        url: 'http://localhost:8080/add_user',
+        data: {
+          name
+        }
+      }).then((response) => {
+        console.log(response);
+      })*/
 
     return (
         <div id="profile-div">
