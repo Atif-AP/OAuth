@@ -20,8 +20,8 @@ mongoose
 
   //HIER WORDT VIA API HET SCHEMA AANGEROEPEN EN GESAVED
 app.post("/add_user", async (request, response) => {
-  /*const user = new userModel({
-    name: request.params.displayName
+  const user = new userModel({
+    name: request.body.displayName
 
   });
   
@@ -30,7 +30,7 @@ app.post("/add_user", async (request, response) => {
       response.send(user);
     } catch (error) {
       response.status(500).send(error);
-    }*/
+    }
 
     console.log("done");
 });
