@@ -7,42 +7,22 @@ import { useEffect } from "react";
  */
 export const ProfileData = (props) => {
     //const name = "test";
-    const json = JSON.stringify({
-      displayName: props.graphData.displayName
-    });
+    const data = props.graphData.displayName;
+
+    const headers = {
+      "Content-Type" : "text/plain"
+    };
 
     console.log(props.graphData.displayName);
 
     //VARIATIES VAN AXIOS CALLS DIE IK HEB GEPROBEERD
     //CALL WORDT SUCCESVOL UITGEVOERD, MAAR MET GEEN DATA ERIN
 
-    /*useEffect(() => {
-      axios.post("http://localhost:8080/add_user", {Name: "Test"}).then(res => {console.log(res)}).catch(error => {console.log(error)});
-    });*/
-
-    //axios.post("http://localhost:8080/add_user", json).then(res => {console.log(res)}).catch(error => {console.log(error)});
-
-    //axios.post("http://localhost:8080/add_user", json).then(res => {console.log(res)}, error => {console.log(error)})
-
-    axios({
-        method: 'post',
-        url: 'http://localhost:8080/add_user',
-        data: {
-          displayName: props.graphData.displayName
-        }
-      }).then((response) => {
-        console.log(response);
-      })
-
-      /*await axios({
-        method: 'post',
-        url: 'http://localhost:8080/add_user',
-        data: {
-          name
-        }
-      }).then((response) => {
-        console.log(response);
-      })*/
+    useEffect(() => {
+      axios.post("http://localhost:8080/add_user", {
+        name: props.graphData.displayName
+      }).then(res => {console.log(res)}).catch(error => {console.log(error)});
+    });
 
     return (
         <div id="profile-div">
