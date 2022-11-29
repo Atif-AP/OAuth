@@ -6,18 +6,6 @@ import { useEffect } from "react";
  * Renders information about the user obtained from Microsoft Graph
  */
 export const ProfileData = (props) => {
-    //const name = "test";
-    const data = props.graphData.displayName;
-
-    const headers = {
-      "Content-Type" : "text/plain"
-    };
-
-    console.log(props.graphData.displayName);
-
-    //VARIATIES VAN AXIOS CALLS DIE IK HEB GEPROBEERD
-    //CALL WORDT SUCCESVOL UITGEVOERD, MAAR MET GEEN DATA ERIN
-
     useEffect(() => {
       axios.post("http://localhost:8080/add_user", {
         name: props.graphData.displayName

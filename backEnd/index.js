@@ -21,8 +21,6 @@ mongoose
 
   //HIER WORDT VIA API HET SCHEMA AANGEROEPEN EN GESAVED
 app.post("/add_user", (request, response) => {
-  const data = request.body.name;
-  console.log(data);
   const user = new userModel({
     name: request.body.name
 
