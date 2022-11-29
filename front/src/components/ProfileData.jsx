@@ -1,20 +1,30 @@
 import React from "react";
 import axios from "axios";
+import { useEffect } from "react";
 
 /**
  * Renders information about the user obtained from Microsoft Graph
  */
-export const ProfileData = async (props) => {
-    const name = "test";
+export const ProfileData = (props) => {
+    //const name = "test";
+    const json = JSON.stringify({
+      displayName: props.graphData.displayName
+    });
 
-    console.log(props.graphData.displayName)
+    console.log(props.graphData.displayName);
 
     //VARIATIES VAN AXIOS CALLS DIE IK HEB GEPROBEERD
     //CALL WORDT SUCCESVOL UITGEVOERD, MAAR MET GEEN DATA ERIN
 
-    await axios.post("http://localhost:8080/add_user", {Name: "Test"}).then(res => {console.log(res)}).catch(error => {console.log(error)});
+    /*useEffect(() => {
+      axios.post("http://localhost:8080/add_user", {Name: "Test"}).then(res => {console.log(res)}).catch(error => {console.log(error)});
+    });*/
 
-    /*await axios({
+    //axios.post("http://localhost:8080/add_user", json).then(res => {console.log(res)}).catch(error => {console.log(error)});
+
+    //axios.post("http://localhost:8080/add_user", json).then(res => {console.log(res)}, error => {console.log(error)})
+
+    axios({
         method: 'post',
         url: 'http://localhost:8080/add_user',
         data: {
@@ -22,7 +32,7 @@ export const ProfileData = async (props) => {
         }
       }).then((response) => {
         console.log(response);
-      })*/
+      })
 
       /*await axios({
         method: 'post',
